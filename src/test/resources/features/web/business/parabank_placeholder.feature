@@ -7,7 +7,7 @@ Feature: ParaBank business flows
     And Parabank ana sayfasini actim
     When I login with invalid business credentials
     Then I should see a business login error
-    @debug
+    @debug @smoke
   Scenario: Registration form fill should keep entered values
     Given I open ParaBank registration page
     When I complete business registration with unique user
