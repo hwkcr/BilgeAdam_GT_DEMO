@@ -5,12 +5,17 @@
   },
   "remoteUser": "vscode",
   "forwardPorts": [
-    6080
+    6080,
+    8080
   ],
   "portsAttributes": {
     "6080": {
       "label": "noVNC browser demo",
       "onAutoForward": "notify"
+    },
+    "8080": {
+      "label": "Jenkins",
+      "onAutoForward": "openPreview"
     }
   },
   "customizations": {
@@ -27,5 +32,6 @@
       }
     }
   },
-  "postCreateCommand": "bash scripts/codespaces-doctor.sh --quick"
+  "postCreateCommand": "bash scripts/codespaces-doctor.sh --quick",
+  "postStartCommand": "bash scripts/start-jenkins.sh"
 }
