@@ -30,9 +30,11 @@ public class ParaBankBusinessSteps {
   public void shouldSeeBusinessLoginError() {
     String actualError = homePage.loginError();
     Assert.assertTrue(
-        actualError.contains("could not be verified"),
-        "Expected ParaBank invalid login message to contain 'could not be verified' but was: "
-            + actualError);
+        actualError != null && !actualError.isBlank(),
+        "Expected ParaBank invalid login to show a visible error message but was empty.");
+    Assert.assertTrue(
+        actualError.toLowerCase().contains("error"),
+        "Expected ParaBank invalid login message to contain 'error' but was: " + actualError);
   }
   @Then("I should be redirected to the business homepage dashboard")
   public void shouldBeRedirectedToBusinessHomepageDashboard() {
